@@ -96,7 +96,7 @@
             "versions": "EQ(*)"
         },
         {
-            "action": "abuse email",
+            "action": "get email",
             "identifier": "lookup_abuseemail",
             "description": "Check for the Abuse E-mail address in RIPE database",
             "verbose": "",
