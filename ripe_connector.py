@@ -1,6 +1,16 @@
-# -----------------------------------------
-# Phantom sample App Connector python file
-# -----------------------------------------
+# --
+# File: nmap_connector.py
+#
+# Copyright (c) Phantom Cyber Corporation, 2016-2017
+#
+# This unpublished material is proprietary to Phantom Cyber.
+# All rights reserved. The methods and
+# techniques described herein are considered trade secrets
+# and/or confidential. Reproduction or distribution, in whole
+# or in part, is forbidden except by express written permission
+# of Phantom Cyber.
+#
+# --
 
 # Phantom App imports
 import phantom.app as phantom
@@ -149,8 +159,6 @@ class RipeConnector(BaseConnector):
 
         self.save_progress("Test Connectivity Passed")
         return action_result.set_status(phantom.APP_SUCCESS)
-        self.save_progress("Test Connectivity Failed, action not yet implemented")
-        return action_result.set_status(phantom.APP_ERROR, "Action not yet implemented")
 
     def _handle_lookup_ip(self, param):
 
@@ -170,8 +178,6 @@ class RipeConnector(BaseConnector):
 
         return action_result.set_status(phantom.APP_SUCCESS)
 
-        return action_result.set_status(phantom.APP_ERROR, "Action not yet implemented")
-
     def _handle_lookup_abuseemail(self, param):
 
         self.save_progress("In action handler for: {0}".format(self.get_action_identifier()))
@@ -189,8 +195,6 @@ class RipeConnector(BaseConnector):
         action_result.add_data(response)
 
         return action_result.set_status(phantom.APP_SUCCESS)
-
-        return action_result.set_status(phantom.APP_ERROR, "Action not yet implemented")
 
     def handle_action(self, param):
 
@@ -224,7 +228,7 @@ class RipeConnector(BaseConnector):
         # Access values in asset config by the name
 
         # Required values can be accessed directly
-        self._base_url = config['base_rul']
+        self._base_url = config['base_url']
 
         # Optional values should use the .get() function
         # optional_config_name = config.get('optional_config_name')

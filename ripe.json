@@ -1,9 +1,9 @@
 {
     "appid": "8a3922ca-6884-4355-be35-e4e3982cd9aa",
     "name": "RIPE",
-    "description": "RIPE",
+    "description": "This app support <b>investigative</b> actions on RIPE",
     "type": "information",
-    "product_vendor": "Phantom",
+    "product_vendor": "RIPE",
     "logo": "ripe.png",
     "product_name": "RIPE",
     "product_version_regex": "2017.8.*",
@@ -12,11 +12,11 @@
     "app_version": "1.0.0",
     "utctime_updated": "2017-08-29T02:06:26.435963Z",
     "package_name": "phantom_ripe",
-    "main_module": "ripe_connector.py",
+    "main_module": "ripe_connector.pyc",
     "min_phantom_version": "3.0.247",
     "app_wizard_version": "1.0.0",
     "configuration": {
-        "base_rul": {
+        "base_url": {
             "description": "Base URL for testing",
             "data_type": "string",
             "required": false,
@@ -96,7 +96,7 @@
             "versions": "EQ(*)"
         },
         {
-            "action": "lookup abuse email",
+            "action": "abuse email",
             "identifier": "lookup_abuseemail",
             "description": "Check for the Abuse E-mail address in RIPE database",
             "verbose": "",
