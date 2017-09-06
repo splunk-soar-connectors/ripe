@@ -17,7 +17,7 @@
     "app_wizard_version": "1.0.0",
     "configuration": {
         "base_url": {
-            "description": "Base URL for testing",
+            "description": "Base URL",
             "data_type": "string",
             "required": false,
             "value_list": [],
@@ -98,7 +98,7 @@
         {
             "action": "get email",
             "identifier": "lookup_abuseemail",
-            "description": "Check for the Abuse E-mail address in RIPE database",
+            "description": "Check for and return the associated Abuse E-mail address from the RIPE database",
             "verbose": "",
             "type": "investigate",
             "read_only": true,

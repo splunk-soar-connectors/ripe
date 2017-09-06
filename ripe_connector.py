@@ -139,7 +139,7 @@ class RipeConnector(BaseConnector):
                             url,
                             json=data,
                             headers=headers,
-                            verify=config.get('verify_server_cert', False),
+                            verify=config.get('verify_server_cert', True),
                             params=params)
         except Exception as e:
             return RetVal(action_result.set_status( phantom.APP_ERROR, "Error Connecting to server. Details: {0}".format(str(e))), resp_json)
