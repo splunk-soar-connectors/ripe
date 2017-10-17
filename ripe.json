@@ -1,19 +1,19 @@
 {
     "appid": "8a3922ca-6884-4355-be35-e4e3982cd9aa",
     "name": "RIPE",
-    "description": "This app support <b>investigative</b> actions on RIPE",
+    "description": "This app integrates with RIPE to support investigative actions",
     "type": "information",
     "product_vendor": "RIPE",
     "logo": "ripe.png",
     "product_name": "RIPE",
     "product_version_regex": "2017.8.*",
     "publisher": "Phantom",
-    "license": "Copyright Phantom 2017",
+    "license": "Copyright (c) Phantom Cyber Corporation 2017",
     "app_version": "1.0.1",
     "utctime_updated": "2017-09-07T20:57:42.000000Z",
     "package_name": "phantom_ripe",
     "main_module": "ripe_connector.pyc",
-    "min_phantom_version": "3.0.247",
+    "min_phantom_version": "3.0.251",
     "app_wizard_version": "1.0.0",
     "configuration": {
         "base_url": {
@@ -40,7 +40,7 @@
         {
             "action": "lookup ip",
             "identifier": "lookup_ip",
-            "description": "Check for the IP in the RIPE database for abuse counts",
+            "description": "Queries RIPE for abuse counts associated with an IP",
             "verbose": "",
             "type": "investigate",
             "read_only": true,
@@ -98,7 +98,7 @@
         {
             "action": "get email",
             "identifier": "lookup_abuseemail",
-            "description": "Check for and return the associated Abuse E-mail address from the RIPE database",
+            "description": "Retrieves the associated abuse e-mail",
             "verbose": "",
             "type": "investigate",
             "read_only": true,
