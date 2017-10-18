@@ -176,7 +176,7 @@ class RipeConnector(BaseConnector):
 
         action_result.add_data(response)
 
-        return action_result.set_status(phantom.APP_SUCCESS)
+        return action_result.set_status(phantom.APP_SUCCESS, "Successfully retrieved abuse counts")
 
     def _handle_lookup_abuseemail(self, param):
 
@@ -194,7 +194,7 @@ class RipeConnector(BaseConnector):
 
         action_result.add_data(response)
 
-        return action_result.set_status(phantom.APP_SUCCESS)
+        return action_result.set_status(phantom.APP_SUCCESS, "Successfully retrieved abuse e-mail")
 
     def handle_action(self, param):
 
