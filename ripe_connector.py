@@ -154,7 +154,7 @@ class RipeConnector(BaseConnector):
         ret_val, response = self._make_rest_call('/data/blacklist/data.json?resource=1.1.1.1', action_result)
 
         if (phantom.is_fail(ret_val)):
-            self.save_progress("Test Connectivity Failed. Error: {0}".format(action_result.get_message()))
+            self.save_progress("Test Connectivity Failed")
             return action_result.get_status()
 
         self.save_progress("Test Connectivity Passed")
@@ -176,7 +176,7 @@ class RipeConnector(BaseConnector):
 
         action_result.add_data(response)
 
-        return action_result.set_status(phantom.APP_SUCCESS)
+        return action_result.set_status(phantom.APP_SUCCESS, "Successfully retrieved abuse counts")
 
     def _handle_lookup_abuseemail(self, param):
 
@@ -194,7 +194,7 @@ class RipeConnector(BaseConnector):
 
         action_result.add_data(response)
 
-        return action_result.set_status(phantom.APP_SUCCESS)
+        return action_result.set_status(phantom.APP_SUCCESS, "Successfully retrieved abuse e-mail")
 
     def handle_action(self, param):
 

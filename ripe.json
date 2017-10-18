@@ -19,7 +19,7 @@
         "base_url": {
             "description": "Base URL",
             "data_type": "string",
-            "required": false,
+            "required": true,
             "value_list": [],
             "default": "https://stat.ripe.net",
             "order": 0
@@ -88,6 +88,18 @@
                     ],
                     "column_name": "Details",
                     "column_order": "2"
+                },
+                {
+                    "data_path": "action_result.message",
+                    "data_type": "string"
+                },
+                {
+                    "data_path": "action_result.status",
+                    "data_type": "string",
+                    "example_values": [
+                        "success",
+                        "failed"
+                    ]
                 }
             ],
             "render": {
@@ -158,6 +170,18 @@
                     ],
                     "column_name": "Abuse E-mail Address",
                     "column_order": "3"
+                },
+                {
+                    "data_path": "action_result.message",
+                    "data_type": "string"
+                },
+                {
+                    "data_path": "action_result.status",
+                    "data_type": "string",
+                    "example_values": [
+                        "success",
+                        "failed"
+                    ]
                 }
             ],
             "render": {
