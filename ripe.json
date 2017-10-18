@@ -19,7 +19,7 @@
         "base_url": {
             "description": "Base URL",
             "data_type": "string",
-            "required": false,
+            "required": true,
             "value_list": [],
             "default": "https://stat.ripe.net",
             "order": 0
