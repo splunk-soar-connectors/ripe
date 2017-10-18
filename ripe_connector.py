@@ -154,7 +154,7 @@ class RipeConnector(BaseConnector):
         ret_val, response = self._make_rest_call('/data/blacklist/data.json?resource=1.1.1.1', action_result)
 
         if (phantom.is_fail(ret_val)):
-            self.save_progress("Test Connectivity Failed. Error: {0}".format(action_result.get_message()))
+            self.save_progress("Test Connectivity Failed")
             return action_result.get_status()
 
         self.save_progress("Test Connectivity Passed")
