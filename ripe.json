@@ -116,7 +116,8 @@
                     "data_path": "action_result.data.*.server_id",
                     "data_type": "string",
                     "example_values": [
-                        "stat-app8"
+                        "stat-app8",
+                        "stat-app4"
                     ]
                 },
                 {
@@ -138,7 +139,8 @@
                     "data_path": "action_result.data.*.time",
                     "data_type": "string",
                     "example_values": [
-                        "2017-10-23T20:00:57.966063"
+                        "2017-10-23T20:00:57.966063",
+                        "2017-10-24T00:37:36.284349"
                     ]
                 },
                 {
@@ -152,14 +154,16 @@
                     "data_path": "action_result.data.*.query_id",
                     "data_type": "string",
                     "example_values": [
-                        "20171023200057-901649ff-a771-4daa-8325-761974320be8"
+                        "20171023200057-901649ff-a771-4daa-8325-761974320be8",
+                        "20171024003734-c240b179-bc2d-4abe-8f8e-0c52e0885e26"
                     ]
                 },
                 {
                     "data_path": "action_result.data.*.process_time",
                     "data_type": "numeric",
                     "example_values": [
-                        3
+                        3,
+                        1474
                     ]
                 },
                 {
@@ -180,14 +184,16 @@
                     "data_path": "action_result.data.*.data.query_endtime",
                     "data_type": "string",
                     "example_values": [
-                        "2017-10-21T00:00:00"
+                        "2017-10-21T00:00:00",
+                        "2017-10-23T00:00:00"
                     ]
                 },
                 {
                     "data_path": "action_result.data.*.data.resource",
                     "data_type": "string",
                     "example_values": [
-                        "8.8.8.8"
+                        "8.8.8.8",
+                        "41.38.18.230"
                     ],
                     "contains": [
                         "ip"
@@ -213,6 +219,32 @@
                     "example_values": [
                         1
                     ]
+                },
+                {
+                    "data_path": "action_result.data.*.data.sources.uceprotect-level2.*.timelines.*.endtime",
+                    "data_type": "string",
+                    "example_values": [
+                        "2011-11-28T08:11:00"
+                    ]
+                },
+                {
+                    "data_path": "action_result.data.*.data.sources.uceprotect-level2.*.timelines.*.starttime",
+                    "data_type": "string",
+                    "example_values": [
+                        "2011-11-28T08:11:00"
+                    ]
+                },
+                {
+                    "data_path": "action_result.data.*.messages",
+                    "data_type": "string"
+                },
+                {
+                    "data_path": "action_result.data.*.see_also",
+                    "data_type": "string"
+                },
+                {
+                    "data_path": "action_result.summary",
+                    "data_type": "string"
                 }
             ],
             "render": {
@@ -278,7 +310,8 @@
                     "data_path": "action_result.data.*.data.anti_abuse_contacts.abuse_c.*.email",
                     "data_type": "string",
                     "example_values": [
-                        "herman@phantom.us"
+                        "herman@phantom.us",
+                        "abuse@pt.clara.net"
                     ],
                     "contains": [
                         "email"
@@ -312,7 +345,8 @@
                     "data_path": "action_result.data.*.server_id",
                     "data_type": "string",
                     "example_values": [
-                        "stat-app5"
+                        "stat-app5",
+                        "stat-app11"
                     ]
                 },
                 {
@@ -334,7 +368,8 @@
                     "data_path": "action_result.data.*.time",
                     "data_type": "string",
                     "example_values": [
-                        "2017-10-23T20:00:55.863057"
+                        "2017-10-23T20:00:55.863057",
+                        "2017-10-24T00:38:31.296888"
                     ]
                 },
                 {
@@ -348,14 +383,16 @@
                     "data_path": "action_result.data.*.query_id",
                     "data_type": "string",
                     "example_values": [
-                        "20171023200053-c6c5d7d1-ebb6-4c5a-80d0-54b0b14059a5"
+                        "20171023200053-c6c5d7d1-ebb6-4c5a-80d0-54b0b14059a5",
+                        "20171024003830-daf5219b-250e-4fa8-9cfb-5dda309614ba"
                     ]
                 },
                 {
                     "data_path": "action_result.data.*.process_time",
                     "data_type": "numeric",
                     "example_values": [
-                        1911
+                        1911,
+                        549
                     ]
                 },
                 {
@@ -376,14 +413,16 @@
                     "data_path": "action_result.data.*.data.query_time",
                     "data_type": "string",
                     "example_values": [
-                        "2017-10-23T20:00:00"
+                        "2017-10-23T20:00:00",
+                        "2017-10-24T00:38:00"
                     ]
                 },
                 {
                     "data_path": "action_result.data.*.data.resource",
                     "data_type": "string",
                     "example_values": [
-                        "8.8.8.8"
+                        "8.8.8.8",
+                        "195.22.26.248"
                     ],
                     "contains": [
                         "ip"
@@ -410,28 +449,32 @@
                     "data_path": "action_result.data.*.data.global_network_info.description",
                     "data_type": "string",
                     "example_values": [
-                        "Level 3 Communications, Inc."
+                        "Level 3 Communications, Inc.",
+                        "RIPE NCC (Status: ALLOCATED)"
                     ]
                 },
                 {
                     "data_path": "action_result.data.*.data.global_network_info.name",
                     "data_type": "string",
                     "example_values": [
-                        "Level 3 Communications, Inc."
+                        "Level 3 Communications, Inc.",
+                        "RIPE NCC (Status: ALLOCATED)"
                     ]
                 },
                 {
                     "data_path": "action_result.data.*.data.holder_info.resource",
                     "data_type": "string",
                     "example_values": [
-                        "8.0.0.0 - 8.255.255.255"
+                        "8.0.0.0 - 8.255.255.255",
+                        "195.22.25.128 - 195.22.31.255"
                     ]
                 },
                 {
                     "data_path": "action_result.data.*.data.authorities",
                     "data_type": "string",
                     "example_values": [
-                        "arin"
+                        "arin",
+                        "ripe"
                     ]
                 },
                 {
@@ -447,6 +490,56 @@
                     "example_values": [
                         1
                     ]
+                },
+                {
+                    "data_path": "action_result.data.*.data.anti_abuse_contacts.abuse_c.*.key",
+                    "data_type": "string",
+                    "example_values": [
+                        "ESO6-RIPE"
+                    ]
+                },
+                {
+                    "data_path": "action_result.data.*.data.anti_abuse_contacts.abuse_c.*.description",
+                    "data_type": "string",
+                    "example_values": [
+                        "abuse-c"
+                    ]
+                },
+                {
+                    "data_path": "action_result.data.*.messages",
+                    "data_type": "string"
+                },
+                {
+                    "data_path": "action_result.data.*.see_also",
+                    "data_type": "string"
+                },
+                {
+                    "data_path": "action_result.data.*.data.special_resources",
+                    "data_type": "string"
+                },
+                {
+                    "data_path": "action_result.data.*.data.blacklist_info",
+                    "data_type": "string"
+                },
+                {
+                    "data_path": "action_result.data.*.data.anti_abuse_contacts.objects_with_remarks",
+                    "data_type": "string"
+                },
+                {
+                    "data_path": "action_result.data.*.data.anti_abuse_contacts.extracted_emails",
+                    "data_type": "string"
+                },
+                {
+                    "data_path": "action_result.data.*.data.anti_abuse_contacts.emails",
+                    "data_type": "string"
+                },
+                {
+                    "data_path": "action_result.data.*.data.more_specifics",
+                    "data_type": "string"
+                },
+                {
+                    "data_path": "action_result.summary",
+                    "data_type": "string"
                 }
             ],
             "render": {
