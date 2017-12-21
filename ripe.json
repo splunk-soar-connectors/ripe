@@ -4,7 +4,8 @@
     "description": "This app integrates with RIPE to support investigative actions",
     "type": "information",
     "product_vendor": "RIPE",
-    "logo": "ripe.png",
+    "logo": "logo_ripencc.svg",
+    "logo_dark": "logo_ripencc_dark.svg",
     "product_name": "RIPE",
     "product_version_regex": "2017.8.*",
     "publisher": "Phantom",
@@ -60,6 +61,14 @@
             },
             "output": [
                 {
+                    "data_path": "action_result.status",
+                    "data_type": "string",
+                    "example_values": [
+                        "success",
+                        "failed"
+                    ]
+                },
+                {
                     "data_path": "action_result.parameter.ip",
                     "data_type": "string",
                     "contains": [
@@ -73,13 +82,45 @@
                     ]
                 },
                 {
-                    "data_path": "action_result.data.*.data.sources.uceprotect-level2.*.prefix",
+                    "data_path": "action_result.data.*.build_version",
                     "data_type": "string",
                     "example_values": [
-                        "41.32.0.0/12"
+                        "2017.10.20.257"
+                    ]
+                },
+                {
+                    "data_path": "action_result.data.*.cached",
+                    "data_type": "boolean",
+                    "example_values": [
+                        true,
+                        false
+                    ]
+                },
+                {
+                    "data_path": "action_result.data.*.data.query_endtime",
+                    "data_type": "string",
+                    "example_values": [
+                        "2017-10-21T00:00:00",
+                        "2017-10-23T00:00:00"
+                    ]
+                },
+                {
+                    "data_path": "action_result.data.*.data.query_starttime",
+                    "data_type": "string",
+                    "example_values": [
+                        "2009-06-22T14:10:00"
+                    ]
+                },
+                {
+                    "data_path": "action_result.data.*.data.resource",
+                    "data_type": "string",
+                    "example_values": [
+                        "8.8.8.8",
+                        "41.38.18.230"
                     ],
-                    "column_name": "Network",
-                    "column_order": "1"
+                    "contains": [
+                        "ip"
+                    ]
                 },
                 {
                     "data_path": "action_result.data.*.data.sources.uceprotect-level2.*.details",
@@ -91,26 +132,58 @@
                     "column_order": "2"
                 },
                 {
-                    "data_path": "action_result.message",
+                    "data_path": "action_result.data.*.data.sources.uceprotect-level2.*.prefix",
                     "data_type": "string",
                     "example_values": [
-                        "Successfully retrieved abuse counts"
+                        "41.32.0.0/12"
+                    ],
+                    "column_name": "Network",
+                    "column_order": "1"
+                },
+                {
+                    "data_path": "action_result.data.*.data.sources.uceprotect-level2.*.timelines.*.endtime",
+                    "data_type": "string",
+                    "example_values": [
+                        "2011-11-28T08:11:00"
                     ]
                 },
                 {
-                    "data_path": "action_result.status",
+                    "data_path": "action_result.data.*.data.sources.uceprotect-level2.*.timelines.*.starttime",
                     "data_type": "string",
                     "example_values": [
-                        "success",
-                        "failed"
+                        "2011-11-28T08:11:00"
                     ]
                 },
                 {
-                    "data_path": "action_result.data.*.status",
+                    "data_path": "action_result.data.*.data_call_status",
                     "data_type": "string",
                     "example_values": [
-                        "ok"
+                        "supported - connecting to ursa"
                     ]
+                },
+                {
+                    "data_path": "action_result.data.*.messages",
+                    "data_type": "string"
+                },
+                {
+                    "data_path": "action_result.data.*.process_time",
+                    "data_type": "numeric",
+                    "example_values": [
+                        3,
+                        1474
+                    ]
+                },
+                {
+                    "data_path": "action_result.data.*.query_id",
+                    "data_type": "string",
+                    "example_values": [
+                        "20171023200057-901649ff-a771-4daa-8325-761974320be8",
+                        "20171024003734-c240b179-bc2d-4abe-8f8e-0c52e0885e26"
+                    ]
+                },
+                {
+                    "data_path": "action_result.data.*.see_also",
+                    "data_type": "string"
                 },
                 {
                     "data_path": "action_result.data.*.server_id",
@@ -121,11 +194,10 @@
                     ]
                 },
                 {
-                    "data_path": "action_result.data.*.cached",
-                    "data_type": "boolean",
+                    "data_path": "action_result.data.*.status",
+                    "data_type": "string",
                     "example_values": [
-                        true,
-                        false
+                        "ok"
                     ]
                 },
                 {
@@ -151,59 +223,14 @@
                     ]
                 },
                 {
-                    "data_path": "action_result.data.*.query_id",
-                    "data_type": "string",
-                    "example_values": [
-                        "20171023200057-901649ff-a771-4daa-8325-761974320be8",
-                        "20171024003734-c240b179-bc2d-4abe-8f8e-0c52e0885e26"
-                    ]
+                    "data_path": "action_result.summary",
+                    "data_type": "string"
                 },
                 {
-                    "data_path": "action_result.data.*.process_time",
-                    "data_type": "numeric",
-                    "example_values": [
-                        3,
-                        1474
-                    ]
-                },
-                {
-                    "data_path": "action_result.data.*.build_version",
+                    "data_path": "action_result.message",
                     "data_type": "string",
                     "example_values": [
-                        "2017.10.20.257"
-                    ]
-                },
-                {
-                    "data_path": "action_result.data.*.data_call_status",
-                    "data_type": "string",
-                    "example_values": [
-                        "supported - connecting to ursa"
-                    ]
-                },
-                {
-                    "data_path": "action_result.data.*.data.query_endtime",
-                    "data_type": "string",
-                    "example_values": [
-                        "2017-10-21T00:00:00",
-                        "2017-10-23T00:00:00"
-                    ]
-                },
-                {
-                    "data_path": "action_result.data.*.data.resource",
-                    "data_type": "string",
-                    "example_values": [
-                        "8.8.8.8",
-                        "41.38.18.230"
-                    ],
-                    "contains": [
-                        "ip"
-                    ]
-                },
-                {
-                    "data_path": "action_result.data.*.data.query_starttime",
-                    "data_type": "string",
-                    "example_values": [
-                        "2009-06-22T14:10:00"
+                        "Successfully retrieved abuse counts"
                     ]
                 },
                 {
@@ -219,32 +246,6 @@
                     "example_values": [
                         1
                     ]
-                },
-                {
-                    "data_path": "action_result.data.*.data.sources.uceprotect-level2.*.timelines.*.endtime",
-                    "data_type": "string",
-                    "example_values": [
-                        "2011-11-28T08:11:00"
-                    ]
-                },
-                {
-                    "data_path": "action_result.data.*.data.sources.uceprotect-level2.*.timelines.*.starttime",
-                    "data_type": "string",
-                    "example_values": [
-                        "2011-11-28T08:11:00"
-                    ]
-                },
-                {
-                    "data_path": "action_result.data.*.messages",
-                    "data_type": "string"
-                },
-                {
-                    "data_path": "action_result.data.*.see_also",
-                    "data_type": "string"
-                },
-                {
-                    "data_path": "action_result.summary",
-                    "data_type": "string"
                 }
             ],
             "render": {
@@ -275,6 +276,14 @@
             },
             "output": [
                 {
+                    "data_path": "action_result.status",
+                    "data_type": "string",
+                    "example_values": [
+                        "success",
+                        "failed"
+                    ]
+                },
+                {
                     "data_path": "action_result.parameter.ip",
                     "data_type": "string",
                     "contains": [
@@ -288,23 +297,26 @@
                     ]
                 },
                 {
-                    "data_path": "action_result.data.*.data.less_specifics",
+                    "data_path": "action_result.data.*.build_version",
                     "data_type": "string",
                     "example_values": [
-                        "195.22.0.0/19"
-                    ],
-                    "column_name": "Network",
-                    "column_order": "1"
+                        "2017.10.20.257"
+                    ]
                 },
                 {
-                    "data_path": "action_result.data.*.data.holder_info.name",
+                    "data_path": "action_result.data.*.cached",
+                    "data_type": "boolean",
+                    "example_values": [
+                        true,
+                        false
+                    ]
+                },
+                {
+                    "data_path": "action_result.data.*.data.anti_abuse_contacts.abuse_c.*.description",
                     "data_type": "string",
                     "example_values": [
-                        "ESOTERICA",
-                        "NON-RIPE-NCC-MANAGED-ADDRESS-BLOCK"
-                    ],
-                    "column_name": "Network Name",
-                    "column_order": "2"
+                        "abuse-c"
+                    ]
                 },
                 {
                     "data_path": "action_result.data.*.data.anti_abuse_contacts.abuse_c.*.email",
@@ -320,26 +332,153 @@
                     "column_order": "3"
                 },
                 {
-                    "data_path": "action_result.message",
+                    "data_path": "action_result.data.*.data.anti_abuse_contacts.abuse_c.*.key",
                     "data_type": "string",
                     "example_values": [
-                        "Successfully retrieved abuse e-mail"
+                        "ESO6-RIPE"
                     ]
                 },
                 {
-                    "data_path": "action_result.status",
+                    "data_path": "action_result.data.*.data.anti_abuse_contacts.emails",
+                    "data_type": "string"
+                },
+                {
+                    "data_path": "action_result.data.*.data.anti_abuse_contacts.extracted_emails",
+                    "data_type": "string"
+                },
+                {
+                    "data_path": "action_result.data.*.data.anti_abuse_contacts.objects_with_remarks",
+                    "data_type": "string"
+                },
+                {
+                    "data_path": "action_result.data.*.data.authorities",
                     "data_type": "string",
                     "example_values": [
-                        "success",
-                        "failed"
+                        "arin",
+                        "ripe"
                     ]
                 },
                 {
-                    "data_path": "action_result.data.*.status",
+                    "data_path": "action_result.data.*.data.blacklist_info",
+                    "data_type": "string"
+                },
+                {
+                    "data_path": "action_result.data.*.data.global_network_info.description",
                     "data_type": "string",
                     "example_values": [
-                        "ok"
+                        "Level 3 Communications, Inc.",
+                        "RIPE NCC (Status: ALLOCATED)"
                     ]
+                },
+                {
+                    "data_path": "action_result.data.*.data.global_network_info.name",
+                    "data_type": "string",
+                    "example_values": [
+                        "Level 3 Communications, Inc.",
+                        "RIPE NCC (Status: ALLOCATED)"
+                    ]
+                },
+                {
+                    "data_path": "action_result.data.*.data.global_network_info.source",
+                    "data_type": "string",
+                    "example_values": [
+                        "IANA IPv4 Address Space Registry"
+                    ]
+                },
+                {
+                    "data_path": "action_result.data.*.data.global_network_info.source_url",
+                    "data_type": "string",
+                    "example_values": [
+                        "http://www.iana.org/assignments/ipv4-address-space/ipv4-address-space.csv"
+                    ],
+                    "contains": [
+                        "url"
+                    ]
+                },
+                {
+                    "data_path": "action_result.data.*.data.holder_info.name",
+                    "data_type": "string",
+                    "example_values": [
+                        "ESOTERICA",
+                        "NON-RIPE-NCC-MANAGED-ADDRESS-BLOCK"
+                    ],
+                    "column_name": "Network Name",
+                    "column_order": "2"
+                },
+                {
+                    "data_path": "action_result.data.*.data.holder_info.resource",
+                    "data_type": "string",
+                    "example_values": [
+                        "8.0.0.0 - 8.255.255.255",
+                        "195.22.25.128 - 195.22.31.255"
+                    ]
+                },
+                {
+                    "data_path": "action_result.data.*.data.less_specifics",
+                    "data_type": "string",
+                    "example_values": [
+                        "195.22.0.0/19"
+                    ],
+                    "column_name": "Network",
+                    "column_order": "1"
+                },
+                {
+                    "data_path": "action_result.data.*.data.more_specifics",
+                    "data_type": "string"
+                },
+                {
+                    "data_path": "action_result.data.*.data.query_time",
+                    "data_type": "string",
+                    "example_values": [
+                        "2017-10-23T20:00:00",
+                        "2017-10-24T00:38:00"
+                    ]
+                },
+                {
+                    "data_path": "action_result.data.*.data.resource",
+                    "data_type": "string",
+                    "example_values": [
+                        "8.8.8.8",
+                        "195.22.26.248"
+                    ],
+                    "contains": [
+                        "ip"
+                    ]
+                },
+                {
+                    "data_path": "action_result.data.*.data.special_resources",
+                    "data_type": "string"
+                },
+                {
+                    "data_path": "action_result.data.*.data_call_status",
+                    "data_type": "string",
+                    "example_values": [
+                        "supported - connecting to flow"
+                    ]
+                },
+                {
+                    "data_path": "action_result.data.*.messages",
+                    "data_type": "string"
+                },
+                {
+                    "data_path": "action_result.data.*.process_time",
+                    "data_type": "numeric",
+                    "example_values": [
+                        1911,
+                        549
+                    ]
+                },
+                {
+                    "data_path": "action_result.data.*.query_id",
+                    "data_type": "string",
+                    "example_values": [
+                        "20171023200053-c6c5d7d1-ebb6-4c5a-80d0-54b0b14059a5",
+                        "20171024003830-daf5219b-250e-4fa8-9cfb-5dda309614ba"
+                    ]
+                },
+                {
+                    "data_path": "action_result.data.*.see_also",
+                    "data_type": "string"
                 },
                 {
                     "data_path": "action_result.data.*.server_id",
@@ -350,11 +489,10 @@
                     ]
                 },
                 {
-                    "data_path": "action_result.data.*.cached",
-                    "data_type": "boolean",
+                    "data_path": "action_result.data.*.status",
+                    "data_type": "string",
                     "example_values": [
-                        true,
-                        false
+                        "ok"
                     ]
                 },
                 {
@@ -380,101 +518,14 @@
                     ]
                 },
                 {
-                    "data_path": "action_result.data.*.query_id",
-                    "data_type": "string",
-                    "example_values": [
-                        "20171023200053-c6c5d7d1-ebb6-4c5a-80d0-54b0b14059a5",
-                        "20171024003830-daf5219b-250e-4fa8-9cfb-5dda309614ba"
-                    ]
+                    "data_path": "action_result.summary",
+                    "data_type": "string"
                 },
                 {
-                    "data_path": "action_result.data.*.process_time",
-                    "data_type": "numeric",
-                    "example_values": [
-                        1911,
-                        549
-                    ]
-                },
-                {
-                    "data_path": "action_result.data.*.build_version",
+                    "data_path": "action_result.message",
                     "data_type": "string",
                     "example_values": [
-                        "2017.10.20.257"
-                    ]
-                },
-                {
-                    "data_path": "action_result.data.*.data_call_status",
-                    "data_type": "string",
-                    "example_values": [
-                        "supported - connecting to flow"
-                    ]
-                },
-                {
-                    "data_path": "action_result.data.*.data.query_time",
-                    "data_type": "string",
-                    "example_values": [
-                        "2017-10-23T20:00:00",
-                        "2017-10-24T00:38:00"
-                    ]
-                },
-                {
-                    "data_path": "action_result.data.*.data.resource",
-                    "data_type": "string",
-                    "example_values": [
-                        "8.8.8.8",
-                        "195.22.26.248"
-                    ],
-                    "contains": [
-                        "ip"
-                    ]
-                },
-                {
-                    "data_path": "action_result.data.*.data.global_network_info.source",
-                    "data_type": "string",
-                    "example_values": [
-                        "IANA IPv4 Address Space Registry"
-                    ]
-                },
-                {
-                    "data_path": "action_result.data.*.data.global_network_info.source_url",
-                    "data_type": "string",
-                    "example_values": [
-                        "http://www.iana.org/assignments/ipv4-address-space/ipv4-address-space.csv"
-                    ],
-                    "contains": [
-                        "url"
-                    ]
-                },
-                {
-                    "data_path": "action_result.data.*.data.global_network_info.description",
-                    "data_type": "string",
-                    "example_values": [
-                        "Level 3 Communications, Inc.",
-                        "RIPE NCC (Status: ALLOCATED)"
-                    ]
-                },
-                {
-                    "data_path": "action_result.data.*.data.global_network_info.name",
-                    "data_type": "string",
-                    "example_values": [
-                        "Level 3 Communications, Inc.",
-                        "RIPE NCC (Status: ALLOCATED)"
-                    ]
-                },
-                {
-                    "data_path": "action_result.data.*.data.holder_info.resource",
-                    "data_type": "string",
-                    "example_values": [
-                        "8.0.0.0 - 8.255.255.255",
-                        "195.22.25.128 - 195.22.31.255"
-                    ]
-                },
-                {
-                    "data_path": "action_result.data.*.data.authorities",
-                    "data_type": "string",
-                    "example_values": [
-                        "arin",
-                        "ripe"
+                        "Successfully retrieved abuse e-mail"
                     ]
                 },
                 {
@@ -490,56 +541,6 @@
                     "example_values": [
                         1
                     ]
-                },
-                {
-                    "data_path": "action_result.data.*.data.anti_abuse_contacts.abuse_c.*.key",
-                    "data_type": "string",
-                    "example_values": [
-                        "ESO6-RIPE"
-                    ]
-                },
-                {
-                    "data_path": "action_result.data.*.data.anti_abuse_contacts.abuse_c.*.description",
-                    "data_type": "string",
-                    "example_values": [
-                        "abuse-c"
-                    ]
-                },
-                {
-                    "data_path": "action_result.data.*.messages",
-                    "data_type": "string"
-                },
-                {
-                    "data_path": "action_result.data.*.see_also",
-                    "data_type": "string"
-                },
-                {
-                    "data_path": "action_result.data.*.data.special_resources",
-                    "data_type": "string"
-                },
-                {
-                    "data_path": "action_result.data.*.data.blacklist_info",
-                    "data_type": "string"
-                },
-                {
-                    "data_path": "action_result.data.*.data.anti_abuse_contacts.objects_with_remarks",
-                    "data_type": "string"
-                },
-                {
-                    "data_path": "action_result.data.*.data.anti_abuse_contacts.extracted_emails",
-                    "data_type": "string"
-                },
-                {
-                    "data_path": "action_result.data.*.data.anti_abuse_contacts.emails",
-                    "data_type": "string"
-                },
-                {
-                    "data_path": "action_result.data.*.data.more_specifics",
-                    "data_type": "string"
-                },
-                {
-                    "data_path": "action_result.summary",
-                    "data_type": "string"
                 }
             ],
             "render": {
