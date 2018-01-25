@@ -9,7 +9,7 @@
     "product_name": "RIPE",
     "product_version_regex": "2017.8.*",
     "publisher": "Phantom",
-    "license": "Copyright (c) Phantom Cyber Corporation 2017",
+    "license": "Copyright (c) Phantom Cyber Corporation, 2017-2018",
     "app_version": "1.0.8",
     "utctime_updated": "2017-12-21T22:42:45.000000Z",
     "package_name": "phantom_ripe",
