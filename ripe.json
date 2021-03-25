@@ -9,19 +9,19 @@
     "product_name": "RIPE",
     "product_version_regex": "2017.8.*",
     "publisher": "Phantom",
-    "license": "Copyright (c) Phantom Cyber Corporation 2017",
-    "app_version": "1.0.8",
+    "license": "Copyright (c) Phantom Cyber Corporation 2017-2021",
+    "app_version": "2.0.0",
     "utctime_updated": "2018-12-07T01:48:11.000000Z",
     "package_name": "phantom_ripe",
-    "main_module": "ripe_connector.pyc",
-    "min_phantom_version": "3.0.251",
+    "main_module": "ripe_connector.py",
+    "python_version": "3",
+    "min_phantom_version": "4.9.39220",
     "app_wizard_version": "1.0.0",
     "configuration": {
         "base_url": {
             "description": "Base URL",
             "data_type": "string",
             "required": true,
-            "value_list": [],
             "default": "https://stat.ripe.net",
             "order": 0
         }
@@ -31,7 +31,6 @@
             "action": "test connectivity",
             "identifier": "test_connectivity",
             "description": "Validate the asset configuration for connectivity using supplied configuration",
-            "verbose": "",
             "type": "test",
             "read_only": true,
             "parameters": {},
@@ -42,7 +41,6 @@
             "action": "lookup ip",
             "identifier": "lookup_ip",
             "description": "Queries RIPE for abuse counts associated with an IP",
-            "verbose": "",
             "type": "investigate",
             "read_only": true,
             "parameters": {
@@ -54,19 +52,45 @@
                     "contains": [
                         "ip"
                     ],
-                    "value_list": [],
-                    "default": "",
                     "order": 0
                 }
             },
             "output": [
+                {
+                    "data_path": "action_result.data.*.data.sources.uceprotect-level1.*.timelines.*.endtime", 
+                    "data_type": "string", 
+                    "example_values": [
+                        "2020-04-14T00:10:00"
+                    ]
+                },
+                {
+                    "data_path": "action_result.data.*.data.sources.uceprotect-level1.*.timelines.*.starttime", 
+                    "data_type": "string", 
+                    "example_values": [
+                        "2020-04-02T16:10:00"
+                    ]
+                },
+                {
+                    "data_path": "action_result.data.*.data.sources.uceprotect-level1.*.prefix", 
+                    "data_type": "string", 
+                    "example_values": [
+                        "8.8.8.8/32"
+                    ]
+                }, 
+                {
+                    "data_path": "action_result.data.*.data.sources.uceprotect-level1.*.details", 
+                    "data_type": "string", 
+                    "example_values": [
+                        "no details"
+                    ]
+                },
                 {
                     "data_path": "action_result.parameter.ip",
                     "data_type": "string",
                     "contains": [
                         "ip"
                     ],
-                    "column_name": "ip",
+                    "column_name": "IP",
                     "column_order": 0,
                     "example_values": [
                         "41.38.18.230",
@@ -257,7 +281,6 @@
             "action": "get email",
             "identifier": "lookup_abuseemail",
             "description": "Retrieves the associated abuse e-mail",
-            "verbose": "",
             "type": "investigate",
             "read_only": true,
             "parameters": {
@@ -269,8 +292,6 @@
                     "contains": [
                         "ip"
                     ],
-                    "value_list": [],
-                    "default": "",
                     "order": 0
                 }
             },
@@ -281,7 +302,7 @@
                     "contains": [
                         "ip"
                     ],
-                    "column_name": "ip",
+                    "column_name": "IP",
                     "column_order": 0,
                     "example_values": [
                         "195.22.26.248",
@@ -317,7 +338,7 @@
                     "contains": [
                         "email"
                     ],
-                    "column_name": "Abuse E-mail Address",
+                    "column_name": "Abuse E Mail Address",
                     "column_order": "3"
                 },
                 {

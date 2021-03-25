@@ -1,7 +1,7 @@
 # --
 # File: ripe_connector.py
 #
-# Copyright (c) Phantom Cyber Corporation, 2017-2018
+# Copyright (c) Phantom Cyber Corporation, 2017-2021
 #
 # This unpublished material is proprietary to Phantom Cyber.
 # All rights reserved. The methods and
@@ -142,7 +142,7 @@ class RipeConnector(BaseConnector):
                             verify=config.get('verify_server_cert', True),
                             params=params)
         except Exception as e:
-            return RetVal(action_result.set_status( phantom.APP_ERROR, "Error Connecting to server. Details: {0}".format(str(e))), resp_json)
+            return RetVal(action_result.set_status(phantom.APP_ERROR, "Error Connecting to server. Details: {0}".format(str(e))), resp_json)
 
         return self._process_response(r, action_result)
 
@@ -249,7 +249,7 @@ if __name__ == '__main__':
     pudb.set_trace()
 
     if (len(sys.argv) < 2):
-        print "No test json specified as input"
+        print("No test json specified as input")
         exit(0)
 
     with open(sys.argv[1]) as f:
@@ -260,6 +260,6 @@ if __name__ == '__main__':
         connector = RipeConnector()
         connector.print_progress_message = True
         ret_val = connector._handle_action(json.dumps(in_json), None)
-        print (json.dumps(json.loads(ret_val), indent=4))
+        print(json.dumps(json.loads(ret_val), indent=4))
 
     exit(0)
