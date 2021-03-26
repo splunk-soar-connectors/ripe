@@ -1,14 +1,10 @@
 # --
 # File: ripe_connector.py
 #
-# Copyright (c) Phantom Cyber Corporation, 2017-2021
+# Copyright (c) 2017-2021 Splunk Inc.
 #
-# This unpublished material is proprietary to Phantom Cyber.
-# All rights reserved. The methods and
-# techniques described herein are considered trade secrets
-# and/or confidential. Reproduction or distribution, in whole
-# or in part, is forbidden except by express written permission
-# of Phantom Cyber.
+# SPLUNK CONFIDENTIAL - Use or disclosure of this material in whole or in part
+# without a valid written license from Splunk Inc. is PROHIBITED.
 #
 # --
 
@@ -21,7 +17,8 @@ from phantom.action_result import ActionResult
 # from ripe_consts import *
 import requests
 import json
-from bs4 import BeautifulSoup
+import ipaddress
+from bs4 import BeautifulSoup, UnicodeDammit
 
 
 class RetVal(tuple):
@@ -43,6 +40,22 @@ class RipeConnector(BaseConnector):
         # modify this as you deem fit.
         self._base_url = None
 
+    def _is_ip(self, input_ip_address):
+        """ Function that checks given address and return True if address is valid IPv4 or IPV6 address.
+
+        :param input_ip_address: IP address
+        :return: status (success/failure)
+        """
+
+        ip_address_input = input_ip_address
+
+        try:
+            ipaddress.ip_address(UnicodeDammit(ip_address_input).unicode_markup)
+        except:
+            return False
+
+        return True
+
     def _process_empty_reponse(self, response, action_result):
 
         if response.status_code == 200:
@@ -57,6 +70,9 @@ class RipeConnector(BaseConnector):
 
         try:
             soup = BeautifulSoup(response.text, "html.parser")
+            # Remove the script, style, footer and navigation part from the HTML message
+            for element in soup(["script", "style", "footer", "nav"]):
+                element.extract()
             error_text = soup.text
             split_lines = error_text.split('\n')
             split_lines = [x.strip() for x in split_lines if x.strip()]
@@ -229,7 +245,7 @@ class RipeConnector(BaseConnector):
 
         # Required values can be accessed directly
         self._base_url = config['base_url']
-
+        self.set_validator('ipv6', self._is_ip)
         # Optional values should use the .get() function
         # optional_config_name = config.get('optional_config_name')
 
