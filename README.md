@@ -1,3 +1,8 @@
+[comment]: # " File: readme.md"
+[comment]: # " Copyright (c) 2017-2022 Splunk Inc."
+[comment]: # ""
+[comment]: # " Licensed under Apache 2.0 (https://www.apache.org/licenses/LICENSE-2.0.txt)"
+[comment]: # ""
 # Splunk> Phantom
 
 Welcome to the open-source repository for Splunk> Phantom's ripe App.

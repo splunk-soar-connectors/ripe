@@ -80,7 +80,7 @@
                     "column_order": 0,
                     "example_values": [
                         "41.38.18.230",
-                        "8.8.8.8"
+                        "2620:4D:4000::"
                     ]
                 },
                 {
@@ -102,8 +102,7 @@
                     "data_path": "action_result.data.*.data.query_endtime",
                     "data_type": "string",
                     "example_values": [
-                        "2017-10-21T00:00:00",
-                        "2017-10-23T00:00:00"
+                        "2017-10-21T00:00:00"
                     ]
                 },
                 {
@@ -209,7 +208,6 @@
                     "data_path": "action_result.data.*.process_time",
                     "data_type": "numeric",
                     "example_values": [
-                        3,
                         1474
                     ]
                 },
@@ -217,8 +215,7 @@
                     "data_path": "action_result.data.*.query_id",
                     "data_type": "string",
                     "example_values": [
-                        "20171023200057-901649ff-a771-4daa-8325-761974320be8",
-                        "20171024003734-c240b179-bc2d-4abe-8f8e-0c52e0885e26"
+                        "20171023200057-901649ff-a771-4daa-8325-761974320be8"
                     ]
                 },
                 {
@@ -229,8 +226,7 @@
                     "data_path": "action_result.data.*.server_id",
                     "data_type": "string",
                     "example_values": [
-                        "stat-app8",
-                        "stat-app4"
+                        "stat-app8"
                     ]
                 },
                 {
@@ -251,8 +247,7 @@
                     "data_path": "action_result.data.*.time",
                     "data_type": "string",
                     "example_values": [
-                        "2017-10-23T20:00:57.966063",
-                        "2017-10-24T00:37:36.284349"
+                        "2017-10-23T20:00:57.966063"
                     ]
                 },
                 {
@@ -330,7 +325,7 @@
                     ],
                     "example_values": [
                         "195.22.26.248",
-                        "8.8.8.8"
+                        "2620:4D:4000::"
                     ]
                 },
                 {
@@ -352,7 +347,7 @@
                     "data_path": "action_result.data.*.data.abuse_contacts.*",
                     "data_type": "string",
                     "example_values": [
-                        "herman@test.com"
+                        "Testemail@domain.com"
                     ],
                     "contains": [
                         "email"
@@ -416,16 +411,14 @@
                     "data_path": "action_result.data.*.process_time",
                     "data_type": "numeric",
                     "example_values": [
-                        1911,
-                        549
+                        1911
                     ]
                 },
                 {
                     "data_path": "action_result.data.*.query_id",
                     "data_type": "string",
                     "example_values": [
-                        "20171023200053-c6c5d7d1-ebb6-4c5a-80d0-54b0b14059a5",
-                        "20171024003830-daf5219b-250e-4fa8-9cfb-5dda309614ba"
+                        "20171023200053-c6c5d7d1-ebb6-4c5a-80d0-54b0b14059a5"
                     ]
                 },
                 {
@@ -436,8 +429,7 @@
                     "data_path": "action_result.data.*.server_id",
                     "data_type": "string",
                     "example_values": [
-                        "app5",
-                        "app11"
+                        "app5"
                     ]
                 },
                 {
@@ -458,8 +450,7 @@
                     "data_path": "action_result.data.*.time",
                     "data_type": "string",
                     "example_values": [
-                        "2017-10-23T20:00:55.863057",
-                        "2017-10-24T00:38:31.296888"
+                        "2017-10-23T20:00:55.863057"
                     ]
                 },
                 {

@@ -13,18 +13,16 @@
 # either express or implied. See the License for the specific language governing permissions
 # and limitations under the License.
 #
-#
-# Phantom App imports
-import phantom.app as phantom
-from bs4 import BeautifulSoup
-from phantom.base_connector import BaseConnector
-from phantom.action_result import ActionResult
 
-# Usage of the consts file is recommended
 # from ripe_consts import *
 import ipaddress
 import json
+
+import phantom.app as phantom
 import requests
+from bs4 import BeautifulSoup
+from phantom.base_connector import BaseConnector
+from phantom.action_result import ActionResult
 
 
 class RetVal(tuple):
@@ -73,15 +71,15 @@ class RipeConnector(BaseConnector):
             ip, net_mask = self._break_ip_address(ip_address_input)
 
             # Validate IP address
-            ipaddress.ip_address(ip)
+            ip_object = ipaddress.ip_address(ip)
         except:
             return False
 
         try:
             if net_mask:
-                if "." in ip and (int(net_mask) not in list(range(0, 33))):
+                if isinstance(ip_object, ipaddress.IPv4Address) and (int(net_mask) not in list(range(0, 33))):
                     return False
-                elif ':' in ip and (int(net_mask) not in list(range(1, 129))):
+                elif isinstance(ip_object, ipaddress.IPv6Address) and (int(net_mask) not in list(range(1, 129))):
                     return False
         except:
             return False
@@ -293,6 +291,7 @@ class RipeConnector(BaseConnector):
 if __name__ == '__main__':
 
     import sys
+
     import pudb
     pudb.set_trace()
 
