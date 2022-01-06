@@ -10,15 +10,16 @@
     "product_version_regex": "2017.8.*",
     "publisher": "Splunk",
     "license": "Copyright (c) 2017-2022 Splunk Inc.",
-    "app_version": "2.0.2",
+    "app_version": "2.1.0",
     "utctime_updated": "2021-03-26T22:25:22.000000Z",
     "package_name": "phantom_ripe",
     "main_module": "ripe_connector.py",
     "python_version": "3",
     "min_phantom_version": "5.0.0",
+    "fips_compliant": true,
     "app_wizard_version": "1.0.0",
     "latest_tested_versions": [
-        "Cloud, 19th November, 2021"
+        "Cloud, 5th January, 2022"
     ],
     "configuration": {
         "base_url": {
@@ -158,7 +159,7 @@
                     "data_path": "action_result.data.*.data.sources.uceprotect-level2.*.details",
                     "data_type": "string",
                     "example_values": [
-                        "Net 41.32.0.0/12 is UCEPROTECT-Level2 listed because 3277 abusers are hosted by TEDATA TEDATA/AS8452 there."
+                        "Net 41.32.0.0/12 is UCEPROTECT-Level2 listed because 3277 abusers are hosted by Test Test/AS8452 there."
                     ],
                     "column_name": "Details",
                     "column_order": "2"
@@ -351,8 +352,7 @@
                     "data_path": "action_result.data.*.data.abuse_contacts.*",
                     "data_type": "string",
                     "example_values": [
-                        "herman@phantom.us",
-                        "abuse@pt.clara.net"
+                        "herman@test.com"
                     ],
                     "contains": [
                         "email"

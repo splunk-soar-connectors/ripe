@@ -16,6 +16,7 @@
 #
 # Phantom App imports
 import phantom.app as phantom
+from bs4 import BeautifulSoup
 from phantom.base_connector import BaseConnector
 from phantom.action_result import ActionResult
 
@@ -24,9 +25,6 @@ from phantom.action_result import ActionResult
 import ipaddress
 import json
 import requests
-# import re
-
-from bs4 import BeautifulSoup
 
 
 class RetVal(tuple):
@@ -185,7 +183,7 @@ class RipeConnector(BaseConnector):
         url = self._base_url + endpoint
 
         try:
-            r = request_func(
+            r = request_func(                           # nosemgrep: python.requests.best-practice.use-timeout.use-timeout
                             url,
                             json=data,
                             headers=headers,
@@ -300,7 +298,7 @@ if __name__ == '__main__':
 
     if (len(sys.argv) < 2):
         print("No test json specified as input")
-        exit(0)
+        sys.exit(0)
 
     with open(sys.argv[1]) as f:
         in_json = f.read()
@@ -312,4 +310,4 @@ if __name__ == '__main__':
         ret_val = connector._handle_action(json.dumps(in_json), None)
         print(json.dumps(json.loads(ret_val), indent=4))
 
-    exit(0)
+    sys.exit(0)
