@@ -59,8 +59,8 @@ class RipeConnector(BaseConnector):
 
         return ip_address, prefix_size
 
-    def _is_ipv6(self, input_ip_address):
-        """ Function that checks given address and return True if address is a valid IPV6 or CIDR address.
+    def _is_ip(self, input_ip_address):
+        """ Function that checks given address and return True if address is a valid IP address.
 
         :param input_ip_address: IP address
         :return: status (success/failure)
@@ -275,7 +275,7 @@ class RipeConnector(BaseConnector):
 
         # Required values can be accessed directly
         self._base_url = config['base_url']
-        self.set_validator('ipv6', self._is_ipv6)
+        self.set_validator('ipv6', self._is_ip)
         # Optional values should use the .get() function
         # optional_config_name = config.get('optional_config_name')
 
