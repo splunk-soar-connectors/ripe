@@ -2,7 +2,7 @@
 # RIPE
 
 Publisher: Splunk  
-Connector Version: 2\.1\.1  
+Connector Version: 2\.1\.2  
 Product Vendor: RIPE  
 Product Name: RIPE  
 Product Version Supported (regex): "2017\.8\.\*"  
