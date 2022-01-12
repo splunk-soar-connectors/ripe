@@ -1,46 +1,36 @@
 [comment]: # "Auto-generated SOAR connector documentation"
-[comment]: # "File: README.md"
-[comment]: # "Copyright (c) 2017-2022 Splunk Inc."
-[comment]: # ""
-[comment]: # "Licensed under the Apache License, Version 2.0 (the 'License');"
-[comment]: # "you may not use this file except in compliance with the License."
-[comment]: # "You may obtain a copy of the License at"
-[comment]: # ""
-[comment]: # "http://www.apache.org/licenses/LICENSE-2.0"
-[comment]: # ""
-[comment]: # "Unless required by applicable law or agreed to in writing, software distributed under"
-[comment]: # "the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,"
-[comment]: # "either express or implied. See the License for the specific language governing permissions"
-[comment]: # "and limitations under the License."
-[comment]: # ""
-# Splunk> Phantom
-
-Welcome to the open-source repository for Splunk> Phantom's ripe App.
-
-Please have a look at our [Contributing Guide](https://github.com/Splunk-SOAR-Apps/.github/blob/main/.github/CONTRIBUTING.md) if you are interested in contributing, raising issues, or learning more about open-source Phantom apps.
-
-## Legal and License
-
-This Phantom App is licensed under the Apache 2.0 license. Please see our [Contributing Guide](https://github.com/Splunk-SOAR-Apps/.github/blob/main/.github/CONTRIBUTING.md#legal-notice) for further details.
-
 # RIPE
 
 Publisher: Splunk  
-Connector Version: 2\.0\.1  
+Connector Version: 2\.1\.1  
 Product Vendor: RIPE  
 Product Name: RIPE  
 Product Version Supported (regex): "2017\.8\.\*"  
-Minimum Product Version: 4\.9\.39220  
+Minimum Product Version: 5\.0\.0  
 
 This app integrates with RIPE to support investigative actions
 
-## Port Information
-The app uses HTTP/ HTTPS protocol for communicating with the Ripe server. Below are the default ports used by Splunk SOAR.
+[comment]: # " File: README.md"
+[comment]: # "  "
+[comment]: # "  Copyright (c) 2017-2022 Splunk Inc."
+[comment]: # "  Licensed under the Apache License, Version 2.0 (the 'License');"
+[comment]: # "  you may not use this file except in compliance with the License."
+[comment]: # "  You may obtain a copy of the License at  "
+[comment]: # "      http://www.apache.org/licenses/LICENSE-2.0   "
+[comment]: # "  "
+[comment]: # "  Unless required by applicable law or agreed to in writing, software distributed under"
+[comment]: # "  the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,"
+[comment]: # "  either express or implied. See the License for the specific language governing permissions"
+[comment]: # "  and limitations under the License."
+[comment]: # ""
+The app uses HTTP/ HTTPS protocol for communicating with the Ripe server. Below are the default
+ports used by Splunk SOAR.
 
-SERVICE NAME | TRANSPORT PROTOCOL | PORT
------------- | ------------------ | ----
-**http** | tcp | 80
-**https** | tcp | 443
+|         Service Name | Transport Protocol | Port |
+|----------------------|--------------------|------|
+|         http         | tcp                | 80   |
+|         https        | tcp                | 443  |
+
 
 ### Configuration Variables
 The below configuration variables are required for this Connector to operate.  These variables are specified when configuring a RIPE asset in SOAR.
@@ -96,6 +86,7 @@ action\_result\.data\.\*\.data\.sources\.uceprotect\-level2\.\*\.prefix | string
 action\_result\.data\.\*\.data\.sources\.uceprotect\-level2\.\*\.timelines\.\*\.endtime | string | 
 action\_result\.data\.\*\.data\.sources\.uceprotect\-level2\.\*\.timelines\.\*\.starttime | string | 
 action\_result\.data\.\*\.data\_call\_status | string | 
+action\_result\.data\.\*\.data\_call\_name | string | 
 action\_result\.data\.\*\.messages | string | 
 action\_result\.data\.\*\.process\_time | numeric | 
 action\_result\.data\.\*\.query\_id | string | 
@@ -128,26 +119,13 @@ action\_result\.status | string |
 action\_result\.parameter\.ip | string |  `ip`  `ipv6` 
 action\_result\.data\.\*\.build\_version | string | 
 action\_result\.data\.\*\.cached | boolean | 
-action\_result\.data\.\*\.data\.anti\_abuse\_contacts\.abuse\_c\.\*\.description | string | 
-action\_result\.data\.\*\.data\.anti\_abuse\_contacts\.abuse\_c\.\*\.email | string |  `email` 
-action\_result\.data\.\*\.data\.anti\_abuse\_contacts\.abuse\_c\.\*\.key | string | 
-action\_result\.data\.\*\.data\.anti\_abuse\_contacts\.emails | string | 
-action\_result\.data\.\*\.data\.anti\_abuse\_contacts\.extracted\_emails | string | 
-action\_result\.data\.\*\.data\.anti\_abuse\_contacts\.objects\_with\_remarks | string | 
-action\_result\.data\.\*\.data\.authorities | string | 
-action\_result\.data\.\*\.data\.blacklist\_info | string | 
-action\_result\.data\.\*\.data\.global\_network\_info\.description | string | 
-action\_result\.data\.\*\.data\.global\_network\_info\.name | string | 
-action\_result\.data\.\*\.data\.global\_network\_info\.source | string | 
-action\_result\.data\.\*\.data\.global\_network\_info\.source\_url | string |  `url` 
-action\_result\.data\.\*\.data\.holder\_info\.name | string | 
-action\_result\.data\.\*\.data\.holder\_info\.resource | string | 
-action\_result\.data\.\*\.data\.less\_specifics | string | 
-action\_result\.data\.\*\.data\.more\_specifics | string | 
-action\_result\.data\.\*\.data\.query\_time | string | 
-action\_result\.data\.\*\.data\.resource | string |  `ip`  `ipv6` 
-action\_result\.data\.\*\.data\.special\_resources | string | 
+action\_result\.data\.\*\.data\.abuse\_contacts\.\* | string |  `email` 
+action\_result\.data\.\*\.data\.authoritative\_rir | string | 
+action\_result\.data\.\*\.data\.earliest\_time | string | 
+action\_result\.data\.\*\.data\.lastest\_time | string | 
+action\_result\.data\.\*\.data\.parameters\.resource | string |  `ip`  `ipv6` 
 action\_result\.data\.\*\.data\_call\_status | string | 
+action\_result\.data\.\*\.data\_call\_name | string | 
 action\_result\.data\.\*\.messages | string | 
 action\_result\.data\.\*\.process\_time | numeric | 
 action\_result\.data\.\*\.query\_id | string | 
