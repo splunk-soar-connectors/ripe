@@ -1,24 +1,28 @@
-# --
 # File: ripe_connector.py
 #
-# Copyright (c) 2017-2021 Splunk Inc.
+# Copyright (c) 2017-2022 Splunk Inc.
 #
-# SPLUNK CONFIDENTIAL - Use or disclosure of this material in whole or in part
-# without a valid written license from Splunk Inc. is PROHIBITED.
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
 #
-# --
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software distributed under
+# the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+# either express or implied. See the License for the specific language governing permissions
+# and limitations under the License.
+#
 
-# Phantom App imports
-import phantom.app as phantom
-from phantom.base_connector import BaseConnector
-from phantom.action_result import ActionResult
-
-# Usage of the consts file is recommended
 # from ripe_consts import *
-import requests
-import json
 import ipaddress
-from bs4 import BeautifulSoup, UnicodeDammit
+import json
+
+import phantom.app as phantom
+import requests
+from bs4 import BeautifulSoup
+from phantom.action_result import ActionResult
+from phantom.base_connector import BaseConnector
 
 
 class RetVal(tuple):
@@ -40,23 +44,49 @@ class RipeConnector(BaseConnector):
         # modify this as you deem fit.
         self._base_url = None
 
+    def _break_ip_address(self, cidr_ip_address):
+        """ Function divides the input parameter into IP address and network mask.
+
+        :param cidr_ip_address: IP address in format of IP/prefix_size
+        :return: IP, prefix_size
+        """
+
+        if "/" in cidr_ip_address:
+            ip_address, prefix_size = cidr_ip_address.split("/")
+        else:
+            ip_address = cidr_ip_address
+            prefix_size = 0
+
+        return ip_address, prefix_size
+
     def _is_ip(self, input_ip_address):
-        """ Function that checks given address and return True if address is valid IPv4 or IPV6 address.
+        """ Function that checks given address and return True if address is a valid IP address.
 
         :param input_ip_address: IP address
         :return: status (success/failure)
         """
 
         ip_address_input = input_ip_address
+        try:
+            ip, net_mask = self._break_ip_address(ip_address_input)
+
+            # Validate IP address
+            ip_object = ipaddress.ip_address(ip)
+        except:
+            return False
 
         try:
-            ipaddress.ip_address(UnicodeDammit(ip_address_input).unicode_markup)
+            if net_mask:
+                if isinstance(ip_object, ipaddress.IPv4Address) and (int(net_mask) not in list(range(0, 33))):
+                    return False
+                elif isinstance(ip_object, ipaddress.IPv6Address) and (int(net_mask) not in list(range(1, 129))):
+                    return False
         except:
             return False
 
         return True
 
-    def _process_empty_reponse(self, response, action_result):
+    def _process_empty_response(self, response, action_result):
 
         if response.status_code == 200:
             return RetVal(phantom.APP_SUCCESS, {})
@@ -119,7 +149,7 @@ class RipeConnector(BaseConnector):
         if 'json' in r.headers.get('Content-Type', ''):
             return self._process_json_response(r, action_result)
 
-        # Process an HTML resonse, Do this no matter what the api talks.
+        # Process an HTML response, Do this no matter what the api talks.
         # There is a high chance of a PROXY in between phantom and the rest of
         # world, in case of errors, PROXY's return HTML, this function parses
         # the error and adds it to the action_result.
@@ -128,7 +158,7 @@ class RipeConnector(BaseConnector):
 
         # it's not content-type that is to be parsed, handle an empty response
         if not r.text:
-            return self._process_empty_reponse(r, action_result)
+            return self._process_empty_response(r, action_result)
 
         # everything else is actually an error at this point
         message = "Can't process response from server. Status Code: {0} Data from server: {1}".format(
@@ -151,7 +181,7 @@ class RipeConnector(BaseConnector):
         url = self._base_url + endpoint
 
         try:
-            r = request_func(
+            r = request_func(                           # nosemgrep: python.requests.best-practice.use-timeout.use-timeout
                             url,
                             json=data,
                             headers=headers,
@@ -261,12 +291,13 @@ class RipeConnector(BaseConnector):
 if __name__ == '__main__':
 
     import sys
+
     import pudb
     pudb.set_trace()
 
     if (len(sys.argv) < 2):
         print("No test json specified as input")
-        exit(0)
+        sys.exit(0)
 
     with open(sys.argv[1]) as f:
         in_json = f.read()
@@ -278,4 +309,4 @@ if __name__ == '__main__':
         ret_val = connector._handle_action(json.dumps(in_json), None)
         print(json.dumps(json.loads(ret_val), indent=4))
 
-    exit(0)
+    sys.exit(0)
