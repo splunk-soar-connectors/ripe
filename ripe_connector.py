@@ -1,6 +1,6 @@
 # File: ripe_connector.py
 #
-# Copyright (c) 2017-2022 Splunk Inc.
+# Copyright (c) 2017-2024 Splunk Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -215,6 +215,7 @@ class RipeConnector(BaseConnector):
         ip = param['ip']
 
         endpoint_uri = "/data/blacklist/data.json?resource={0}".format(ip)
+        self.save_progress("Making rest call to Ripe")
         ret_val, response = self._make_rest_call(endpoint_uri, action_result)
 
         if (phantom.is_fail(ret_val)):
@@ -233,6 +234,7 @@ class RipeConnector(BaseConnector):
         ip = param['ip']
 
         endpoint_uri = "/data/abuse-contact-finder/data.json?resource={0}".format(ip)
+        self.save_progress("Making rest call to Ripe")
         ret_val, response = self._make_rest_call(endpoint_uri, action_result)
 
         if (phantom.is_fail(ret_val)):
