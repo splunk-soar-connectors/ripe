@@ -1,9 +1,9 @@
 # RIPE
 
-Publisher: Splunk \
-Connector Version: 2.1.4 \
-Product Vendor: RIPE \
-Product Name: RIPE \
+Publisher: Splunk <br>
+Connector Version: 2.1.4 <br>
+Product Vendor: RIPE <br>
+Product Name: RIPE <br>
 Minimum Product Version: 5.0.0
 
 This app integrates with RIPE to support investigative actions
@@ -26,15 +26,15 @@ VARIABLE | REQUIRED | TYPE | DESCRIPTION
 
 ### Supported Actions
 
-[test connectivity](#action-test-connectivity) - Validate the asset configuration for connectivity using supplied configuration \
-[lookup ip](#action-lookup-ip) - Queries RIPE for abuse counts associated with an IP \
+[test connectivity](#action-test-connectivity) - Validate the asset configuration for connectivity using supplied configuration <br>
+[lookup ip](#action-lookup-ip) - Queries RIPE for abuse counts associated with an IP <br>
 [get email](#action-get-email) - Retrieves the associated abuse e-mail
 
 ## action: 'test connectivity'
 
 Validate the asset configuration for connectivity using supplied configuration
 
-Type: **test** \
+Type: **test** <br>
 Read only: **True**
 
 #### Action Parameters
@@ -49,7 +49,7 @@ No Output
 
 Queries RIPE for abuse counts associated with an IP
 
-Type: **investigate** \
+Type: **investigate** <br>
 Read only: **True**
 
 #### Action Parameters
@@ -97,7 +97,7 @@ summary.total_objects_successful | numeric | | 1 |
 
 Retrieves the associated abuse e-mail
 
-Type: **investigate** \
+Type: **investigate** <br>
 Read only: **True**
 
 #### Action Parameters

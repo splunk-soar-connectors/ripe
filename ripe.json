@@ -14,7 +14,7 @@
     "utctime_updated": "2022-01-13T10:47:29.000000Z",
     "package_name": "phantom_ripe",
     "main_module": "ripe_connector.py",
-    "python_version": "3",
+    "python_version": "3.9, 3.13",
     "min_phantom_version": "5.0.0",
     "fips_compliant": true,
     "app_wizard_version": "1.0.0",
@@ -492,5 +492,11 @@
             },
             "versions": "EQ(*)"
         }
-    ]
+    ],
+    "pip39_dependencies": {
+        "wheel": []
+    },
+    "pip313_dependencies": {
+        "wheel": []
+    }
 }
