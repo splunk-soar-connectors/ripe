@@ -1,7 +1,7 @@
 # RIPE
 
 Publisher: Splunk <br>
-Connector Version: 2.1.4 <br>
+Connector Version: 2.1.5 <br>
 Product Vendor: RIPE <br>
 Product Name: RIPE <br>
 Minimum Product Version: 5.0.0
