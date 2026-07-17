@@ -1,3 +1,3 @@
 **Unreleased**
 
-* Updated development tooling. (PAPP-38036)
+* Escaped RIPE widget values embedded in JavaScript handlers. (PAPP-38036)
