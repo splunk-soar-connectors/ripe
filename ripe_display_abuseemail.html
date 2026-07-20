@@ -11,7 +11,7 @@
 {% block widget_content %}
   <!-- Main Start Block -->
   <!-- File: ripe_display_abuseemail.html
-  Copyright (c) 2017-2025 Splunk Inc.
+  Copyright (c) 2017-2026 Splunk Inc.
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
   You may obtain a copy of the License at
@@ -75,7 +75,7 @@
                 <tr>
                   <td class="widget-td">
                     <a href="javascript:;"
-                       onclick="context_menu(this, [{'contains': ['ip', 'ipv6'], 'value': '{{ abusedata.data.parameters.resource }}' }], 0, {{ container.id }}, null, false);">
+                       onclick="context_menu(this, [{'contains': ['ip', 'ipv6'], 'value': '{{ abusedata.data.parameters.resource|escapejs }}' }], 0, {{ container.id }}, null, false);">
                       {{ abusedata.data.parameters.resource }}
                       &nbsp;
                       <span class="fa fa-caret-down" style="font-size: smaller;"></span>
@@ -86,7 +86,7 @@
                       {% for email in abusedata.data.abuse_contacts %}
                         <li class="no-word-wrap">
                           <a href="javascript:;"
-                             onclick="context_menu(this, [{'contains': ['email'], 'value': '{{ email }}' }], 0, {{ container.id }}, null, false);">
+                             onclick="context_menu(this, [{'contains': ['email'], 'value': '{{ email|escapejs }}' }], 0, {{ container.id }}, null, false);">
                             {{ email }}
                             &nbsp;
                             <span class="fa fa-caret-down" style="font-size: smaller;"></span>

@@ -1,6 +1,6 @@
 # File: ripe_connector.py
 #
-# Copyright (c) 2017-2025 Splunk Inc.
+# Copyright (c) 2017-2026 Splunk Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -185,7 +185,7 @@ class RipeConnector(BaseConnector):
         action_result = self.add_action_result(ActionResult(dict(param)))
 
         self.save_progress("Connecting to endpoint")
-        ret_val, response = self._make_rest_call("/data/blacklist/data.json?resource=1.1.1.1", action_result)
+        ret_val, _response = self._make_rest_call("/data/blacklist/data.json?resource=1.1.1.1", action_result)
 
         if phantom.is_fail(ret_val):
             self.save_progress("Test Connectivity Failed")
