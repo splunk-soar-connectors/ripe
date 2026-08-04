@@ -14,7 +14,6 @@
 # and limitations under the License.
 #
 
-# from ripe_consts import *
 import ipaddress
 import json
 
@@ -23,6 +22,8 @@ import requests
 from bs4 import BeautifulSoup
 from phantom.action_result import ActionResult
 from phantom.base_connector import BaseConnector
+
+from ripe_consts import RIPE_DEFAULT_TIMEOUT
 
 
 class RetVal(tuple):
@@ -173,8 +174,13 @@ class RipeConnector(BaseConnector):
         url = self._base_url + endpoint
 
         try:
-            r = request_func(  # nosemgrep: python.requests.best-practice.use-timeout.use-timeout
-                url, json=data, headers=headers, verify=config.get("verify_server_cert", True), params=params
+            r = request_func(
+                url,
+                json=data,
+                headers=headers,
+                verify=config.get("verify_server_cert", True),
+                params=params,
+                timeout=RIPE_DEFAULT_TIMEOUT,
             )
         except Exception as e:
             return RetVal(action_result.set_status(phantom.APP_ERROR, f"Error Connecting to server. Details: {e!s}"), resp_json)
